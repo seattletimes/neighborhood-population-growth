@@ -18,60 +18,52 @@
   <responsive-child class="map-container">
     <div class="outmost">
       <section class="chatter">
-        <h1>Lorem Ipsum</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat aliquam lectus vitae porttitor. Donec euismod sem dui, ac gravida sem mattis sed. Fusce porttitor accumsan sem elementum convallis. Nam id augue lobortis, laoreet magna non,
-          sodales risus. </p>
+        <h1>Seattle’s unequal growth</h1>
+        <p>Seattle has grown faster than any other major U.S. city since 2010, but the distribution of that growth has varied from more than 100 percent in some neighborhoods to less than 5 percent in others.</p>
       </section>
 
       <div class="aspect-ratio-outer">
         <div class="aspect-ratio-inner">
 
-          <leaflet-map zoom=10>
+          <leaflet-map zoom=10.5>
+            <map-options>{ "zoomSnap": 0.5 }</map-options>
             <tile-layer layer="cartoPositron"></tile-layer>
             <geo-json>
               <geo-data>
                 <%= t.include("population-growth.geo.json") %>
               </geo-data>
-              <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1 }</geo-style>
-              <geo-palette property="CENSUSAREA">
-                <color-mapping max=10000 color="purple"></color-mapping>
-                <color-mapping min=10001 max=50000 color="blue"></color-mapping>
-                <color-mapping min=50001 max=100000 color="green"></color-mapping>
-                <color-mapping min=100001 max=200000 color="yellow"></color-mapping>
-                <color-mapping min=200001 color="orange"></color-mapping>
+              <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1, "fillOpacity": 0.5 }</geo-style>
+              <geo-palette property="population_growth">
+                <color-mapping max=0.1 color="#edf8e9"></color-mapping>
+                <color-mapping min=0.1 max=0.2 color="#bae4b3"></color-mapping>
+                <color-mapping min=0.2 max=0.4 color="#74c476"></color-mapping>
+                <color-mapping min=0.4 color="#238b45"></color-mapping>
               </geo-palette>
               <geo-popup>
-                <h1 class="bigheader">{{NAME}}</h1>
-                <ul>
-                  <li> Size: {{CENSUSAREA}}
-                  <li> State ID: {{STATE}}
-                  <li> Geo ID: {{GEO_ID}}
-                </ul>
+                <h1 class="bigheader">{{population_growth}}</h1>
               </geo-popup>
             </geo-json>
           </leaflet-map>
 
         </div>
         <aside class="legend">
-          <h1>Map legend</h1>
+          <h1>Population growth, 2010-2017</h1>
           <ul class="scale">
             <li>
-              <span class="block" style="background-color: red"></span> Cherry</li>
+              <span class="block" style="background-color: #edf8e9"></span> Less than 10%</li>
             <li>
-              <span class="block" style="background-color: orange"></span> Orange</li>
+              <span class="block" style="background-color: #bae4b3"></span> 10-19%</li>
             <li>
-              <span class="block" style="background-color: yellow"></span> Lemon</li>
+              <span class="block" style="background-color: #74c476"></span> 20-39%</li>
             <li>
-              <span class="block" style="background-color: green"></span> Lime</li>
-            <li>
-              <span class="block" style="background-color: blue"></span> Blueberry</li>
+              <span class="block" style="background-color: #238b45"></span> Greater than 40%</li>
           </ul>
         </aside>
       </div>
 
 
-      <div class="source">Source: Name of source
-        <span class="credit">XXX XXX / THE SEATTLE TIMES</div>
+      <div class="source">Source: Washington Office of Financial Management
+        <span class="credit">Alec Glassford / THE SEATTLE TIMES</div>
     </div>
   </responsive-child>
 
