@@ -1,16 +1,16 @@
 {
   "s3": {
     "stage": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects-staging.seattletimes.com",
+      "path": "professional-zephyr"
     },
     "live": {
-      "bucket": "",
+      "bucket": "projects.seattletimes.com",
       "path": ""
     }
   },
-  "title": "",
-  "description": "",
+  "title": "Seattle's unequal growth",
+  "description": "Seattle has grown faster than any other major U.S. city since 2010, but the distribution of that growth has varied from more than 100 percent in some neighborhoods to less than 5 percent in others.",
   "url": "",
   "slug": "",
   "tags": []
