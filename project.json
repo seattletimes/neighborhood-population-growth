@@ -11,7 +11,8 @@
   },
   "title": "Seattle's unequal growth",
   "description": "Seattle has grown faster than any other major U.S. city since 2010, but the distribution of that growth has varied from more than 100 percent in some neighborhoods to less than 5 percent in others.",
-  "url": "",
-  "slug": "",
-  "tags": []
+  "url": "https://projects.seattletimes.com/2018/fyi-guy/seattles-unequal-growth/",
+  "slug": "seattles-unequal-growth",
+  "tags": ["seattle", "unequal", "growth", "population"],
+  "production": true
 }

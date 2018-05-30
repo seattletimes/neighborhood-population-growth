@@ -12,11 +12,8 @@ var formatWithComma = function addComma(n) {
   return `${str.slice(0, -3)},${str.slice(-3)}`;
 };
 
-//get access to Leaflet and the map
+//get access to geojson layer
 var element = document.querySelector("leaflet-map");
-var L = element.leaflet;
-var map = element.map;
-
 var populationLayer = element.lookup["population-layer"];
 
 populationLayer.eachLayer((tractLayer) => {
