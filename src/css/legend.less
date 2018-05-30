@@ -41,6 +41,7 @@ aside.legend {
       height: 12px;
       display: inline-block;
       vertical-align: text-top;
+      opacity: 0.7;
       @media @tablet {
         display: block;
         width: auto;
@@ -60,5 +61,9 @@ aside.legend {
     text-transform: uppercase;
     display: inline-block;
     float: right;
+
+    @media @mobile {
+      float: none;
+    }
   }
 }

@@ -16,4 +16,4 @@ var map = element.map;
 //   layer.bindPopup(ich.popup(feature.properties))
 // };
 
- map.scrollWheelZoom.disable();
+map.scrollWheelZoom.disable();

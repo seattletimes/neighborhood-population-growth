@@ -32,12 +32,12 @@
               <geo-data>
                 <%= t.include("population-growth.geo.json") %>
               </geo-data>
-              <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1, "fillOpacity": 0.5 }</geo-style>
+              <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1, "fillOpacity": 0.7 }</geo-style>
               <geo-palette property="population_growth">
-                <color-mapping max=0.1 color="#edf8e9"></color-mapping>
+                <color-mapping max=0.1 color="#e1efd0"></color-mapping>
                 <color-mapping min=0.1 max=0.2 color="#bae4b3"></color-mapping>
-                <color-mapping min=0.2 max=0.4 color="#74c476"></color-mapping>
-                <color-mapping min=0.4 color="#238b45"></color-mapping>
+                <color-mapping min=0.2 max=0.4 color="#81c97d"></color-mapping>
+                <color-mapping min=0.4 color="#429b4a"></color-mapping>
               </geo-palette>
               <geo-popup>
                 <h1 class="bigheader">{{population_growth}}</h1>
@@ -50,13 +50,13 @@
           <h1>Population growth, 2010-2017</h1>
           <ul class="scale">
             <li>
-              <span class="block" style="background-color: #edf8e9"></span> Less than 10%</li>
+              <span class="block" style="background-color: #e1efd0"></span> Less than 10%</li>
             <li>
               <span class="block" style="background-color: #bae4b3"></span> 10-19%</li>
             <li>
-              <span class="block" style="background-color: #74c476"></span> 20-39%</li>
+              <span class="block" style="background-color: #81c97d"></span> 20-39%</li>
             <li>
-              <span class="block" style="background-color: #238b45"></span> Greater than 40%</li>
+              <span class="block" style="background-color: #429b4a"></span> Greater than 40%</li>
           </ul>
         </aside>
       </div>
