@@ -2,8 +2,8 @@
 require("component-leaflet-map");
 require("component-responsive-frame");
 
-// Percent with 2 decimal places
-var toPercent = num => (Math.round(10000 * num) / 100).toFixed(2) + "%";
+// Percent with 1 decimal place
+var formatPercent = num => `${num.toFixed(1)}%`;
 
 //get access to Leaflet and the map
 var element = document.querySelector("leaflet-map");
@@ -13,8 +13,9 @@ var map = element.map;
 var populationLayer = element.lookup["population-layer"];
 
 populationLayer.eachLayer((tractLayer) => {
-  const percentGrowth = toPercent(tractLayer.feature.properties.population_growth);
-  tractLayer.bindPopup(`<b>Population growth:</b> ${percentGrowth}`);
+  var { populationGrowthPercent, tractNum } = tractLayer.feature.properties;
+  var formattedGrowth = formatPercent(populationGrowthPercent);
+  tractLayer.bindPopup(`<h1 class="bigheader">Census tract ${tractNum}</h1> <b>Population growth:</b> ${formattedGrowth}`);
 });
 
 map.scrollWheelZoom.disable();
