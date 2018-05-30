@@ -2,18 +2,19 @@
 require("component-leaflet-map");
 require("component-responsive-frame");
 
+// Percent with 2 decimal places
+var toPercent = num => (Math.round(10000 * num) / 100).toFixed(2) + "%";
+
 //get access to Leaflet and the map
 var element = document.querySelector("leaflet-map");
 var L = element.leaflet;
 var map = element.map;
 
-//ICH code for popup template if needed----------
-// var ich = require("icanhaz");
-// var templateFile = require("./_popup.html");
-// ich.addTemplate("popup", templateFile);
+var populationLayer = element.lookup["population-layer"];
 
-// var onEachFeature = function(feature, layer) {
-//   layer.bindPopup(ich.popup(feature.properties))
-// };
+populationLayer.eachLayer((tractLayer) => {
+  const percentGrowth = toPercent(tractLayer.feature.properties.population_growth);
+  tractLayer.bindPopup(`<b>Population growth:</b> ${percentGrowth}`);
+});
 
 map.scrollWheelZoom.disable();

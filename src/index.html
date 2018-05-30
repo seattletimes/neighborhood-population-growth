@@ -28,20 +28,18 @@
           <leaflet-map zoom=10.5>
             <map-options>{ "zoomSnap": 0.5 }</map-options>
             <tile-layer layer="cartoPositron"></tile-layer>
-            <geo-json>
+            <geo-json id="population-layer">
               <geo-data>
                 <%= t.include("population-growth.geo.json") %>
               </geo-data>
               <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1, "fillOpacity": 0.7 }</geo-style>
               <geo-palette property="population_growth">
-                <color-mapping max=0.1 color="#e1efd0"></color-mapping>
-                <color-mapping min=0.1 max=0.2 color="#bae4b3"></color-mapping>
-                <color-mapping min=0.2 max=0.4 color="#81c97d"></color-mapping>
+                <color-mapping max=0.0999 color="#e1efd0"></color-mapping>
+                <color-mapping min=0.1 max=0.1999 color="#bae4b3"></color-mapping>
+                <color-mapping min=0.2 max=0.3999 color="#81c97d"></color-mapping>
                 <color-mapping min=0.4 color="#429b4a"></color-mapping>
+                <!-- <color-mapping min=0.19 max=0.21 color="pink"></color-mapping> -->
               </geo-palette>
-              <geo-popup>
-                <h1 class="bigheader">{{population_growth}}</h1>
-              </geo-popup>
             </geo-json>
           </leaflet-map>
 
