@@ -32,13 +32,12 @@
               <geo-data>
                 <%= t.include("population-growth.geo.json") %>
               </geo-data>
-              <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1, "fillOpacity": 0.7 }</geo-style>
+              <geo-style>{ "weight": 1, "color": "#000", "opacity":0.1, "fillOpacity": 0.5 }</geo-style>
               <geo-palette property="populationGrowthPercent">
                 <color-mapping max=9.9 color="#e1efd0"></color-mapping>
                 <color-mapping min=10 max=19.9 color="#bae4b3"></color-mapping>
                 <color-mapping min=20 max=29.9 color="#81c97d"></color-mapping>
                 <color-mapping min=30 color="#429b4a"></color-mapping>
-                <!-- <color-mapping min=0.19 max=0.21 color="pink"></color-mapping> -->
               </geo-palette>
             </geo-json>
           </leaflet-map>
