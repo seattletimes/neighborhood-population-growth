@@ -24,4 +24,4 @@ populationLayer.eachLayer((tractLayer) => {
 <b>Population growth:</b> ${formattedGrowth} (+${formattedCount} people)`);
 });
 
-map.scrollWheelZoom.disable();
+element.map.scrollWheelZoom.disable();
