@@ -21,7 +21,7 @@ populationLayer.eachLayer((tractLayer) => {
   var formattedGrowth = formatPercent(populationGrowthPercent);
   var formattedCount = formatWithComma(populationGrowthCount);
   tractLayer.bindPopup(`<h1 class="bigheader">Census tract ${tractNum}</h1>
-<b>Population growth:</b> ${formattedGrowth} (+${formattedCount} people)`);
+<b>Population growth:</b> ${formattedGrowth} (${formattedCount > 0 ? '+' : ''}${formattedCount} people)`);
 });
 
 element.map.scrollWheelZoom.disable();
