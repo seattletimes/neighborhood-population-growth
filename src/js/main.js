@@ -1,5 +1,5 @@
-var pointInPolygon = require("@turf/boolean-point-in-polygon").default;
-console.log(pointInPolygon);
+var pip = require("@mapbox/leaflet-pip/leaflet-pip.min");
+pip.bassackwards = true; // Accept [lat, lng] instead of [lng, lat]
 
 var $ = require("./lib/qsa");
 var geolocation = require("./lib/geolocation");
@@ -50,22 +50,6 @@ var hereMarker = L.marker([], {
   }),
 });
 
-var findTract = function findTract(coords) {
-  var lnglat = coords.slice().reverse();
-  var result = null;
-  // .getLayers().some (instead of .eachLayer) lets us return early
-  // .find would be even better, but IE :(
-  populationLayer.getLayers().some((tractLayer) => {
-    var success = pointInPolygon(lnglat, tractLayer.feature);
-    if (success) {
-      result = tractLayer;
-      return true;
-    }
-    return false;
-  });
-  return result;
-};
-
 var search = function search() {
   // If nothing in search box, do nothing
   if (searchBox.value === "") return;
@@ -86,7 +70,7 @@ var search = function search() {
       map.setView(coords, 12);
 
       // Try to identify census tract (it's possible we are out of scope - e.g. Olympia)
-      var tract = findTract(coords);
+      var tract = pip.pointInLayer(coords, populationLayer, true)[0];
       if (tract) tract.openPopup(coords);
 
       // On success, set button back to original text

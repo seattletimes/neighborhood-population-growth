@@ -8,7 +8,7 @@
     "url": "https://github.com/seattletimes/neighborhood-population-growth.git"
   },
   "dependencies": {
-    "@turf/boolean-point-in-polygon": "^6.0.1",
+    "@mapbox/leaflet-pip": "^1.1.0",
     "async": "^1.2.1",
     "aws-sdk": "^2.1.25",
     "babelify": "^6.0.2",
