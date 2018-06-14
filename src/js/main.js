@@ -14,6 +14,8 @@ var formatWithComma = function addComma(n) {
 
 //get access to geojson layer
 var element = document.querySelector("leaflet-map");
+var L = element.leaflet;
+var map = element.map;
 var populationLayer = element.lookup["population-layer"];
 
 populationLayer.eachLayer((tractLayer) => {
@@ -25,3 +27,9 @@ populationLayer.eachLayer((tractLayer) => {
 });
 
 element.map.scrollWheelZoom.disable();
+
+// Add city/neighborhood labels above tracts
+var topLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+  opacity: 0.8,
+  pane: "markerPane",
+}).addTo(map);

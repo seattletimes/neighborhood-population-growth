@@ -25,9 +25,9 @@
       <div class="aspect-ratio-outer">
         <div class="aspect-ratio-inner">
 
-          <leaflet-map zoom=8>
+          <leaflet-map zoom=8 lat="47.52" lng="-122.05">
             <map-options>{ "zoomSnap": 1 }</map-options>
-            <tile-layer layer="cartoPositron"></tile-layer>
+            <tile-layer layer="cartoPositronBlank"></tile-layer>
             <geo-json id="population-layer">
               <geo-data>
                 <%= t.include("population-growth.geo.json") %>
