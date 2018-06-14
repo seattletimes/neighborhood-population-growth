@@ -40,6 +40,12 @@ var topLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/
 // Search - see https://github.com/seattletimes/cascadia-data/blob/master/src/js/map.js
 var searchBox = $.one(".location-search input");
 var searchButton = $.one(".location-search button");
+var hereMarker = L.marker([], {
+  icon: L.divIcon({
+    iconSize: [10, 10],
+    className: "here-marker",
+  }),
+});
 
 var search = function search() {
   if (searchBox.value === "") return;
@@ -49,8 +55,10 @@ var search = function search() {
     if (err) {
       searchButton.innerHTML = "Error, try again";
     } else {
+      hereMarker.setLatLng(coords);
+      map.hasLayer(hereMarker) || hereMarker.addTo(map);
       map.setView(coords, 12);
-      searchButton.innerHTML = "Find census tract";
+      searchButton.innerHTML = "Find your census tract";
     }
     searchButton.removeAttribute("disabled");
   });

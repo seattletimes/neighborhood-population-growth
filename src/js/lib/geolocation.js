@@ -5,20 +5,20 @@ var endpoint = "https://maps.googleapis.com/maps/api/geocode/json?address="
 module.exports = {
   address: function(address, callback) {
     address = address.replace(/\s/g, '+');
-    var bounds = "&bounds=47.4955511,-122.4359085|47.734145,-122.2359032";
+    var bounds = "&bounds=46.708077,-123.005994|48.296752,-120.897556";
     xhr(endpoint + address + bounds, function(err, data) {
       if (err) return callback(err);
       if (data.status == "ZERO_RESULTS") {
         // invalid entry
         callback("No results");
-      } else if (data.results[0].formatted_address.indexOf("Seattle") < 0) {
-        // not in seattle
-        callback("Not in Seattle");
       } else {
-        var lat = data.results[0].geometry.location.lat;
-        var lng = data.results[0].geometry.location.lng;
-
-        callback(null, [lat, lng]);
+        try {
+          var lat = data.results[0].geometry.location.lat;
+          var lng = data.results[0].geometry.location.lng;
+          callback(null, [lat, lng]);
+        } catch (err) {
+          callback("Unknown error");
+        }
       }
     });
   },
