@@ -32,7 +32,7 @@ var search = function search() {
   // Geocode
   geolocation.address(searchBox.value, (err, coords) => {
     if (err) { // Nothing found, out of bounds, XHR error (rate limited?)
-      searchButton.innerHTML = "Error, try again";
+      searchButton.innerHTML = `${err}, try again`;
     } else {
       // Place marker at location and pan map there
       hereMarker.setLatLng(coords);

@@ -13,10 +13,19 @@ module.exports = {
         callback("No results");
       } else {
         try {
+          var inBounds = data.results[0].address_components.some((addr) =>
+            addr.long_name === "King County" ||
+            addr.long_name === "Pierce County" ||
+            addr.long_name === "Snohomish County" ||
+            addr.long_name === "Kitsap County");
+          if (!inBounds) {
+            callback("Out of search area");
+            return;
+          }
           var lat = data.results[0].geometry.location.lat;
           var lng = data.results[0].geometry.location.lng;
         } catch (err2) {
-          callback("Unknown error");
+          callback("Error");
           return;
         }
         callback(null, [lat, lng]);
