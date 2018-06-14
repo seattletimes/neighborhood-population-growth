@@ -15,10 +15,11 @@ module.exports = {
         try {
           var lat = data.results[0].geometry.location.lat;
           var lng = data.results[0].geometry.location.lng;
-          callback(null, [lat, lng]);
-        } catch (err) {
+        } catch (err2) {
           callback("Unknown error");
+          return;
         }
+        callback(null, [lat, lng]);
       }
     });
   },
