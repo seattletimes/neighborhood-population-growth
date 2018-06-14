@@ -1,3 +1,6 @@
+var $ = require("./lib/qsa");
+var geolocation = require("./lib/geolocation");
+
 //load our custom elements
 require("component-leaflet-map");
 require("component-responsive-frame");
@@ -33,3 +36,26 @@ var topLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/
   opacity: 0.8,
   pane: "markerPane",
 }).addTo(map);
+
+// Search - see https://github.com/seattletimes/cascadia-data/blob/master/src/js/map.js
+var searchBox = $.one(".location-search input");
+var searchButton = $.one(".location-search button");
+
+var search = function search() {
+  if (searchBox.value === "") return;
+  searchButton.innerHTML = "Loading ...";
+  searchButton.setAttribute("disabled", "");
+  geolocation.address(searchBox.value, (err, coords) => {
+    if (err) {
+      searchButton.innerHTML = "Error, try again";
+    } else {
+      map.setView(coords, 12);
+      searchButton.innerHTML = "Find census tract";
+    }
+    searchButton.removeAttribute("disabled");
+  });
+};
+searchBox.addEventListener("keydown", (ev) => {
+  if (ev.keyCode === 13) search();
+});
+searchButton.addEventListener("click", search);
