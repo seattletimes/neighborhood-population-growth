@@ -7,6 +7,7 @@ var formatPercent = num => `${num.toFixed(1)}%`;
 
 // Doesn't work on 1 million+
 var formatWithComma = function addComma(n) {
+  if (n < 0) return `-${formatWithComma(-n)}`; // so lazy
   var str = String(n);
   if (str.length <= 3) return str;
   return `${str.slice(0, -3)},${str.slice(-3)}`;
