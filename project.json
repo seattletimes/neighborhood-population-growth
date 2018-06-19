@@ -6,13 +6,13 @@
     },
     "live": {
       "bucket": "projects.seattletimes.com",
-      "path": "TK"
+      "path": "2018/fyi-guy/regional-neighborhood-growth"
     }
   },
-  "title": "TK",
-  "description": "TK",
-  "url": "https://projects.seattletimes.com/2018/fyi-guy/TK/",
-  "slug": "TK",
+  "title": "How fast has your neighborhood grown?",
+  "description": "Search your address to find out how fast your census tract has grown — or shrunk — between 2010 to 2017 in Snohomish, King, Pierce and Kitsap counties.",
+  "url": "https://projects.seattletimes.com/2018/fyi-guy/regional-neighborhood-growth/",
+  "slug": "regional-neighborhood-growth",
   "tags": [],
-  "production": false
+  "production": true
 }

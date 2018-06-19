@@ -18,8 +18,8 @@
   <responsive-child class="map-container">
     <div class="outmost">
       <section class="chatter">
-        <h1>New hed goes here! TK</h1>
-        <p>New chatter goes here! TK Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1>How fast has your neighborhood grown?</h1>
+        <p>Search your address to find out how fast your census tract has grown — or shrunk — between 2010 to 2017 in Snohomish, King, Pierce and Kitsap counties.</p>
       </section>
 
       <div class="location-search">
@@ -29,7 +29,7 @@
       <div class="aspect-ratio-outer">
         <div class="aspect-ratio-inner">
 
-          <leaflet-map zoom=8 lat="47.52" lng="-122.05">
+          <leaflet-map zoom=9.5 lat="47.6" lng="-122.2">
             <map-options>{ "zoomSnap": 1 }</map-options>
             <tile-layer layer="cartoPositronBlank"></tile-layer>
             <geo-json id="population-layer">
@@ -43,7 +43,7 @@
                 <color-mapping min=10 max=19.9 color="hsl(111, 47%, 79%)"></color-mapping>
                 <color-mapping min=20 max=29.9 color="hsl(116, 41%, 58%)"></color-mapping>
                 <color-mapping min=30 max=49.9 color="hsl(125, 40%, 35%)"></color-mapping>
-                <color-mapping min=50 color="#307254"></color-mapping>
+                <color-mapping min=50 color="#063819"></color-mapping>
               </geo-palette>
             </geo-json>
           </leaflet-map>
@@ -63,7 +63,7 @@
             <li>
               <span class="block" style="background-color: hsl(125, 40%, 35%)"></span> 30-49%</li>
             <li>
-              <span class="block" style="background-color: #307254"></span> 50% or more</li>
+              <span class="block" style="background-color: #063819"></span> 50% or more</li>
           </ul>
         </aside>
       </div>
